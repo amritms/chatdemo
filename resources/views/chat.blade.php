@@ -9,7 +9,8 @@
 <h1>Chat Room</h1>
 
 <div id="app">
-  <example></example>
+    <chat-log></chat-log>
+    <chat-composer v-on:messagesent="addMessage"></chat-composer>
 </div>
 
   <script type="text/javascript" src="js/app.js"></script>
