@@ -11482,9 +11482,18 @@ Vue.component('chat-composer', __webpack_require__(42));
 
 var app = new Vue({
   el: '#app',
+  data: {
+    messages: [{
+      message: 'Hey!',
+      user: 'John'
+    }, {
+      message: 'Hello!',
+      user: 'Jane'
+    }]
+  },
   methods: {
-    addMessage: function addMessage() {
-      console.log('message added');
+    addMessage: function addMessage(message) {
+      this.messages.push(message);
     }
   }
 });
@@ -12359,9 +12368,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     sendMessage: function sendMessage() {
-      this.$emit('messageSent', {
+      this.$emit('messagesent', {
         message: this.messageText,
-        author: "Amrit"
+        user: "Amrit"
       });
       console.log(this.messageText);
       this.messageText = '';
@@ -12383,17 +12392,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = {
-  data: function data() {
-    return {
-      messages: [{
-        message: 'Hey!',
-        user: 'John'
-      }, {
-        message: 'Hello!',
-        user: 'Jane'
-      }]
-    };
-  }
+  props: ['messages']
 };
 
 /***/ }),
@@ -14887,7 +14886,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 

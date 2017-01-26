@@ -9,7 +9,7 @@
 <h1>Chat Room</h1>
 
 <div id="app">
-    <chat-log></chat-log>
+    <chat-log :messages="messages"></chat-log>
     <chat-composer v-on:messagesent="addMessage"></chat-composer>
 </div>
 
