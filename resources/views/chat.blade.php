@@ -10,7 +10,7 @@
 
 <div id="app">
     <chat-log></chat-log>
-    <chat-composer v-on:messagesent="addMessage"></chat-composer>
+    <chat-composer v-on:messageSent="addMessage"></chat-composer>
 </div>
 
   <script type="text/javascript" src="js/app.js"></script>
