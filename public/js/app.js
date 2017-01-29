@@ -11495,6 +11495,13 @@ var app = new Vue({
     addMessage: function addMessage(message) {
       this.messages.push(message);
     }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/messages').then(function (response) {
+      _this.messages = response.data;
+    });
   }
 });
 
@@ -12350,7 +12357,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -12370,13 +12377,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     sendMessage: function sendMessage() {
       this.$emit('messagesent', {
         message: this.messageText,
-        user: "Amrit"
+        user: {
+          name: $('.navbar-right .dropdown-toggle').text()
+        }
       });
       console.log(this.messageText);
       this.messageText = '';
     }
   }
 };
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ }),
 /* 33 */
@@ -12384,6 +12394,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -14886,7 +14899,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.chat-log .chat-message:nth-child(even){\n  backgound-color: #ccc;\n}\n.empty{\n  padding: 1rem;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -14914,7 +14927,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.chat-message {\n  padding: 1rem;\n}\n.chat-message > p{\n  margin-bottom: .5rem;\n}\n", ""]);
 
 // exports
 
@@ -32211,13 +32224,21 @@ module.exports = __vue_exports__
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-log"
-  }, _vm._l((_vm.messages), function(message) {
+  }, [_vm._l((_vm.messages), function(message) {
     return _c('chat-message', {
       attrs: {
         "message": message
       }
     })
-  }))
+  }), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.messages.length == 0),
+      expression: "messages.length == 0"
+    }],
+    staticClass: "empty"
+  }, [_vm._v("\n  Nothing here yet\n")])], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32309,7 +32330,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-message"
-  }, [_c('p', [_vm._v(" " + _vm._s(_vm.message.message) + " ")]), _vm._v(" "), _c('small', [_vm._v(" " + _vm._s(_vm.message.user))])])
+  }, [_c('p', [_vm._v(" " + _vm._s(_vm.message.message) + " ")]), _vm._v(" "), _c('small', [_vm._v(" " + _vm._s(_vm.message.user.name))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

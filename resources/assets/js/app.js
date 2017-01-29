@@ -30,11 +30,17 @@ const app = new Vue({
         message: 'Hello!',
         user: 'Jane'
         }
-    ]
-  },
+      ]
+    },
     methods: {
       addMessage(message) {
         this.messages.push(message);
       }
-    }
+    },
+    created() {
+        axios.get('/messages').then(response => {
+            this.messages = response.data;
+        });
+
+  }
 });
