@@ -12,9 +12,6 @@
                     <chat-log :messages="messages"></chat-log>
                     <chat-composer v-on:messagesent="addMessage"></chat-composer>
                 </div>
-
-
-                </div>
               </div>
           </div>
       </div>
