@@ -6,7 +6,10 @@
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-              <div class="panel-heading">Chat Room</div>
+              <div class="panel-heading">
+                Chat Room
+                <span class="badge pull-right"> @{{ usersInRoom.size }} </span>
+              </div>
               <div class="panel-body">
                 <div id="app">
                     <chat-log :messages="messages"></chat-log>
