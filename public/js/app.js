@@ -37214,6 +37214,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "messageText"
     }],
     attrs: {
+      "id": "message",
       "type": "text",
       "placeholder": "Start typing your message..."
     },
